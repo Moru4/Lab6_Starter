@@ -48,7 +48,6 @@ const recipes = [
             .then(response => response.json())
             .then(data => {
               recipeData[recipes[i]] = data;
-              // alert(recipeData[recipes[i]]);
               if (i == 2) {
                 resolve(true);
               }
@@ -56,10 +55,7 @@ const recipes = [
             .catch((error) => {
               reject(false);
             });
-            // alert("hello");
-        //   .then(recipeData[recipes[i]] = data);
       }
-    //   if (recipeData.length == recipes.length);
     });
   }
   
@@ -74,10 +70,7 @@ const recipes = [
     for (let i = 0; i < recipes.length; i++) {
         let rcard = document.createElement('recipe-card');
         document.querySelector("body").querySelector("main").appendChild(rcard);
-        // alert(document.querySelector(rcard));
-        // alert("Hello");
         rcard.data = recipeData[recipes[i]];
-        // alert("Hello 1");
     }
   }
   
