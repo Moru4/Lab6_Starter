@@ -45,16 +45,18 @@ const recipes = [
       // Part 1 Expose - TODO
       for (let i = 0; i < recipes.length; i++) {
           fetch(recipes[i])
-          .then(response => response.json())
-          .then(data => {
-            recipeData[recipes[i]] = data;
-            if (recipeData.length == recipes.length) {
+            .then(response => response.json())
+            .then(data => {
+              recipeData[recipes[i]] = data;
+              // alert(recipeData[recipes[i]]);
+              if (i == 2) {
                 resolve(true);
-            }
-          })
-          .catch((error) => {
+              }
+            })
+            .catch((error) => {
               reject(false);
-          });
+            });
+            // alert("hello");
         //   .then(recipeData[recipes[i]] = data);
       }
     //   if (recipeData.length == recipes.length);
@@ -70,9 +72,12 @@ const recipes = [
   
     // Part 1 Expose - TODO
     for (let i = 0; i < recipes.length; i++) {
-        const rcard = document.createElement('recipe-card');
-        document.main.appendChild(rcard);
-        rcard.data = someData;
+        let rcard = document.createElement('recipe-card');
+        document.querySelector("body").querySelector("main").appendChild(rcard);
+        // alert(document.querySelector(rcard));
+        // alert("Hello");
+        rcard.data = recipeData[recipes[i]];
+        // alert("Hello 1");
     }
   }
   

@@ -103,8 +103,9 @@ class RecipeCard extends HTMLElement {
       // created in the constructor()
   
       // Part 1 Expose - TODO
-      shadow.appendChild(card);
-      shadow.appendChild(styleElem);
+      
+      document.querySelector("recipe-card").appendChild(card);
+      document.querySelector("recipe-card").appendChild(styleElem);
       const pic = document.createElement('img');
       pic.setAttribute("src", searchForKey(data, "thumbnail"));
       pic.setAttribute("alt", searchForKey(data, "headline"));
@@ -117,15 +118,18 @@ class RecipeCard extends HTMLElement {
       card.appendChild(titleLink);
       const org = document.createElement('p');
       org.setAttribute("class", "organization");
+      let orgName = document.createTextNode(getOrganization(data));
+      org.appendChild(orgName);
       card.appendChild(org);
       const divRating = document.createElement('div');
       divRating.setAttribute("class", "rating");
       card.appendChild(divRating);
       const rTime = document.createElement('time');
       card.appendChild(rTime);
-      const ingrediants = document.createElement('p');
-      ingrediants.setAttribute("class", "ingrediants");
-      card.appendChild(ingrediants);
+      const ingredients = document.createElement('p');
+      ingredients.setAttribute("class", "ingredients");
+      card.appendChild(ingredients);
+      
     }
   }
   
